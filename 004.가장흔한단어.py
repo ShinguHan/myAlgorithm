@@ -15,3 +15,4 @@ filter = [
     if word not in banned
 ]
 print(filter)
+print(max(filter.count()))
