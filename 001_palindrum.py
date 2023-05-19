@@ -1,13 +1,11 @@
-input1 = "A man, a Plan, a canal : Panama"
-input2 = "race a car"
+import re
 
-words = input1
-str = []
+input = "A man, a Plan, a canal : Panama"
 
-for char in words:
-    if char.isalnum():
-        str.append(char.lower())
 
-while len(str) > 0:
-    print(str.pop(), end=" ")
-    # print(str.pop(0))
+def palindrome(s: str) -> bool:
+    s = re.sub(r"[^\w]", "", input).lower()
+    return s == s[::-1]
+
+
+print(palindrome(input))
