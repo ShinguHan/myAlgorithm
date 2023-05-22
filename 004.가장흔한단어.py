@@ -7,12 +7,14 @@ import re
 paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
 banned = ["hit"]
 
-commons = collections.defaultdict(int)
 
 filter = [
     word
     for word in re.sub(r"[^\w]", " ", paragraph).lower().split()
     if word not in banned
 ]
-print(filter)
-print(max(filter.count()))
+
+commons = collections.Counter(filter)
+
+most = commons.most_common(1)[0][0]
+print(most)
