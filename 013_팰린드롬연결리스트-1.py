@@ -1,10 +1,23 @@
+# 연결 리스트가 팰린드롬 구조인지 판별하라
+
 from typing import List
+
+input = [1, 2, 2, 1]
 
 
 class ListNode:
-    def __int__(self, x):
-        self.val = x
+    def __init__(self, val=0):
+        self.val = val
         self.next = None
+
+
+lists = [ListNode(lst) for lst in input]
+
+for idx, lst in enumerate(lists):
+    try:
+        lst.next = lists[idx + 1]
+    except:
+        print("마지막")
 
 
 class Solution:
@@ -31,4 +44,4 @@ class Solution:
 
 re = Solution()
 
-print(re.isPalindrome(head=[1, 2, 2, 1]))
+print(re.isPalindrome(lists[0]))
